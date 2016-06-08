@@ -1,12 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.cordova.hellocordova" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>HelloCordova</name>
+<widget id="io.bluescarf.italianquiz" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Italian Quiz</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        A fun quiz that teaches and tests your Italian grammar using the MT Method
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="andy@andy-foster.com" href="http://andy-foster.com">
+        Andy Foster
     </author>
+    <icon src="resources/Colosseum-50.png"></icon>
     <content src="index.html" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
     <access origin="*" />

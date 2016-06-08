@@ -4,9 +4,13 @@ body {
   
 }
 
+h1, h2, h3 {
+  font-weight: normal;
+}
+
 .app {
 	margin-top: 20px;
-	padding: 20px;
+	padding: 10px;
 }
 
 .question {
@@ -20,8 +24,8 @@ body {
   padding: 20px 10px;
   margin-bottom: 20px;
   cursor: pointer;
-  height: 30px;
   border-radius: 10px;
+  min-height: 30px;
 }
 
 #input.success {
@@ -32,15 +36,23 @@ body {
   border: none;
 }
 
+.reset-button {
+	font-size: 2em;
+	color: lightgray;
+	float: right;
+	margin-right: 10px;	
+	z-index: 999999;
+}
+
 #choices span {
   font-size: 1.2em;
   border: 1px solid #e7e7e7;
   background: #f69d42;
-  padding: 20px;
+  padding: 8px 15px;
   cursor: pointer;
   border-radius: 10px;
   display: inline-block;
-  margin: 10px;
+  margin: 5px;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 

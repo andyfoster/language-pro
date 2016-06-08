@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    var words = ["possibile", "por", "me", "non", "e", "sono", "adesso"];
+    var words = ["possibile", "per", "me", "non", "e", "sono", "adesso"];
 
     //var shuffled_words = shuffle(words);
 
@@ -13,31 +13,31 @@ $(document).ready(function(){
 
     var box = $("#input");
 
-    $('#input').on('click', function() {
+    $('#input').on('touchend', function() {
         //$(this).empty();
         $(this).text(" ");
+        //$(this).append('<div class="reset-button>x</div>');
     });
 
-    String.prototype.capitalizeFirstLetter = function() {
-        return this.charAt(0).toUpperCase() + this.slice(1);
-    }
-
-    $("#choices span").on('click', function() {
+    $("#choices span").on('touchend', function() {
      //alert($(this).text());
      if (box.text() === "&nbsp;"){
         box.empty();
      }
      box.append($(this).text());
      box.append(" ");
-     box.text().capitalizeFirstLetter();
     });
 
-    $(".button-check").on('click', function(){
-        if (box.text().trim() === "non e possibile por me") {
+    $(".button-check").on('touchend', function(){
+	    console.log("This:" + box.text().trim());
+        if (box.text().trim() === "non e possibile per me") {
         $(".button-check").css('background', 'green').text("Correct! Next question >>");
         box.addClass('success');
       } else {
             $(".button-check").css('background', 'red').text("Not quite. Try again");
+            setTimeout(function(){
+	            $(".button-check").css('background', '#42a9f6').text("Second Chance");
+            }, 800);
       }
     });
 
@@ -68,18 +68,13 @@ $(document).ready(function(){
     var Questions = { "question" : [
       {
           "number"  : 1,
-        "question"  : "It is not possible for me",
-          "answer"  : "non e possibile por me",                   
+		  	"hint"  : "It is not possible for me",
+          "answer"  : "non e possibile per me",                   
       },
       {
           "number"  : 2,
-        "question"  : "I don't like it",
+		  	"hint"  : "I don't like it",
           "answer"  : "non lo piache",                   
-      },
-      {
-          "number"  : 3,
-        "question"  : "I want to eat it",
-          "answer"  : ["lo volgio mangare", "voglio mangarlo"]      
       }
     ]};
 
@@ -90,14 +85,45 @@ $(document).ready(function(){
       "last_result": "correct",
       "number_correct": 3
     }];
-
+ 
 
     console.log(Questions.question.length);
 
     for (q in Questions.question) {
         console.log(Questions.question[q].answer);
     }
+    
+    var currentQuestion = 1;
+    
+    function generateQuestion() {
+	    var selectedQuestion = Questions.question[currentQuestion - 1];
+	    console.log("Q: " + selectedQuestion.hint);
+	    console.log("A: " + selectedQuestion.answer);
+	    
+	    
+	    for(var j = 1; j <= 5; j++) {
+		    
+	    }
+	    
+    }
+    generateQuestion();
+ 
+ 
+ 
+ 
+    // make an array of all dummy words
+    function grabDummyWords() {
+	    var dummyWords = [];
+	    for (i in Questions.question) {
+			dummyWords += Questions.question[i].answer.split(" ");
+	    }
+	    return dummyWords;
+    }
+    grabDummyWords();
+    
 
+	// Give them a hint if they get it wrong twice
+  // remove the dummy words but subtract a point
 
 
 
